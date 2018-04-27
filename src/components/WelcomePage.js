@@ -5,7 +5,6 @@ export default class WelcomePage extends Component {
 		return (
 			<div>
 				<span className="centerScreen title">COW ???</span>
-				<span className="centerScreen pressSpace">press enter to start the game!</span>
 			</div>
 		)
 	}
