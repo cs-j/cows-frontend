@@ -4,6 +4,7 @@ import './App.css';
 import WelcomePage from './components/WelcomePage';
 import Cow from './components/Cow';
 import { startGame } from './actions';
+import { Button } from 'semantic-ui-react';
 import GamePage from './components/GamePage';
 
 class App extends Component {
@@ -23,18 +24,18 @@ class App extends Component {
 
         { this.props.store.getState().gameStarted === false && <div>
           <WelcomePage />
-          <button className="startButton" onClick={() => this.handleOnClick()}>
+          <Button color='black' size='large' className='startButton' onClick={() => this.handleOnClick()}>
             Start Game
-          </button>
+          </Button>
         </div> }
         { this.props.store.getState().gameStarted === true && this.renderCow(<GamePage />) }
 
-        <canvas id="canvas"
+        {/* <canvas id="canvas"
                width={ this.props.store.getState().screen.width * this.props.store.getState().screen.ratio }
-               height={ this.props.store.getState().screen.height * this.props.store.getState().screen.ratio } />
-        {/* {this.props.store.getState().gameStarted === false ? <canvas id="canvas"
-               width={ this.state.screen.width * this.state.screen.ratio }
-               height={ this.state.screen.height * this.state.screen.ratio } /> : null } */}
+               height={ this.props.store.getState().screen.height * this.props.store.getState().screen.ratio } /> */}
+        {this.props.store.getState().gameStarted === false ? <canvas id="canvas"
+               width={ this.props.store.getState().screen.width * this.props.store.getState().screen.ratio }
+               height={ this.props.store.getState().screen.height * this.props.store.getState().screen.ratio } /> : null }
       </div>
     );
   }
