@@ -48,10 +48,6 @@ canvas {
   font-size: 80px;
 }
 
-.cow {
-  top: 50%;
-}
-
 .startButton {
   top: 35%;
   position: absolute;

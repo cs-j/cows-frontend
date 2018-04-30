@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import WelcomePage from './components/WelcomePage';
-import Cow from './components/Cow';
 import { startGame } from './actions';
 import { Button } from 'semantic-ui-react';
-import GamePage from './components/GamePage';
+import GameScreen from './components/GameScreen';
 
 
 class App extends Component {
@@ -14,8 +13,8 @@ class App extends Component {
     this.props.store.dispatch(startGame())
   }
 
-  renderCow(cow) {
-    return cow
+  renderGame(game) {
+    return game
   }
 
   render() {
@@ -29,11 +28,8 @@ class App extends Component {
             Start Game
           </Button>
         </div> }
-        { this.props.store.getState().gameStarted === true && this.renderCow(<GamePage />) }
+        { this.props.store.getState().gameStarted === true && this.renderGame(<GameScreen />) }
 
-        {/* <canvas id="canvas"
-               width={ this.props.store.getState().screen.width * this.props.store.getState().screen.ratio }
-               height={ this.props.store.getState().screen.height * this.props.store.getState().screen.ratio } /> */}
         {this.props.store.getState().gameStarted === false ? <canvas id="canvas"
                width={ this.props.store.getState().screen.width * this.props.store.getState().screen.ratio }
                height={ this.props.store.getState().screen.height * this.props.store.getState().screen.ratio } /> : null }
