@@ -4,11 +4,16 @@ import './App.css';
 import WelcomePage from './components/WelcomePage';
 import Cow from './components/Cow';
 import { startGame } from './actions';
+import GamePage from './components/GamePage';
 
 class App extends Component {
 
   handleOnClick() {
     this.props.store.dispatch(startGame())
+  }
+
+  renderCow(cow) {
+    return cow
   }
 
   render() {
@@ -22,7 +27,7 @@ class App extends Component {
             Start Game
           </button>
         </div> }
-        { this.props.store.getState().gameStarted === true && <Cow /> }
+        { this.props.store.getState().gameStarted === true && this.renderCow(<GamePage />) }
 
         <canvas id="canvas"
                width={ this.props.store.getState().screen.width * this.props.store.getState().screen.ratio }
