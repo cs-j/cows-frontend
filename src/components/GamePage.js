@@ -1,15 +1,16 @@
 import React from 'react';
 import Matter from 'matter-js';
-import { MatterWrap } from 'matter-wrap';
+// import { MatterWrap } from 'matter-wrap';
 
-// , Example, Engine, Render, Runner, Composite, Composites, Common, MouseConstraint, Mouse, World, Bodies
+// Engine, Render, Runner, Composite, Composites, Common, MouseConstraint, Mouse, World, Bodies
 
-const GamePage = () => {
-  const Example = Example || {};
+const Example = Example || {};
+
+class GamePage extends React.Component {
 
   // Matter.use(MatterWrap);
 
-  // Example.avalanche = function() {
+  Avalanche = function() {
       const Engine = Matter.Engine;
       const Render = Matter.Render;
       const Runner = Matter.Runner;
@@ -56,8 +57,8 @@ const GamePage = () => {
       ]);
 
       // add mouse control
-      const mouse = Mouse.create(render.canvas),
-          mouseConstraint = MouseConstraint.create(engine, {
+      const mouse = Mouse.create(render.canvas);
+      const mouseConstraint = MouseConstraint.create(engine, {
               mouse: mouse,
               constraint: {
                   stiffness: 0.2,
@@ -76,25 +77,28 @@ const GamePage = () => {
       Render.lookAt(render, Composite.allBodies(world));
 
       // wrapping using matter-wrap plugin
-      for (let i = 0; i < stack.bodies.length; i += 1) {
-          stack.bodies[i].plugin.wrap = {
-              min: { x: render.bounds.min.x, y: render.bounds.min.y },
-              max: { x: render.bounds.max.x, y: render.bounds.max.y }
-          };
-      }
+      // for (let i = 0; i < stack.bodies.length; i += 1) {
+      //     stack.bodies[i].plugin.wrap = {
+      //         min: { x: render.bounds.min.x, y: render.bounds.min.y },
+      //         max: { x: render.bounds.max.x, y: render.bounds.max.y }
+      //     };
+      // }
+    }
 
       // context for MatterTools.Demo
-      return {
-          engine: engine,
-          runner: runner,
-          render: render,
-          canvas: render.canvas,
-          stop: function() {
-              Matter.Render.stop(render);
-              Matter.Runner.stop(runner);
-          }
-      };
-  // };
+      render() {
+        return (
+            <div>{this.Avalanche()}</div>
+            // engine: engine,
+            // runner: runner,
+            // render: render,
+            // canvas: render.canvas,
+            // stop: function() {
+            //     Matter.Render.stop(render);
+            //     Matter.Runner.stop(runner);
+            // }
+        )
+      }
 }
 
 export default GamePage;
