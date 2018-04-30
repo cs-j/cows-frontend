@@ -1,14 +1,17 @@
 import React from 'react';
 import Matter from 'matter-js';
+const cow = require('../cow.png');
 // import { MatterWrap } from 'matter-wrap';
 
 // Engine, Render, Runner, Composite, Composites, Common, MouseConstraint, Mouse, World, Bodies
 
-const Example = Example || {};
 
 class GamePage extends React.Component {
 
   // Matter.use(MatterWrap);
+  // componentDidMount() {
+  //   console.log(cow)
+  // }
 
   Avalanche = function() {
       const Engine = Matter.Engine;
@@ -21,19 +24,21 @@ class GamePage extends React.Component {
       const Mouse = Matter.Mouse;
       const World = Matter.World;
       const Bodies = Matter.Bodies;
+      // const Body = Matter.Body;
 
       // create engine
       const engine = Engine.create();
       const world = engine.world;
 
       // create renderer
-      const render = Render.create({
+      let render = Render.create({
           element: document.body,
           engine: engine,
           options: {
               width: 800,
               height: 600,
-              showAngleIndicator: true
+              showAngleIndicator: true,
+              // wireframes: false
           }
       });
 
@@ -45,7 +50,17 @@ class GamePage extends React.Component {
 
       // add bodies
       const stack = Composites.stack(20, 20, 20, 5, 0, 0, function(x, y) {
-          return Bodies.circle(x, y, Common.random(10, 20), { friction: 0.00001, restitution: 0.5, density: 0.001 });
+          // return Bodies.circle(x, y, Common.random(10, 20), { friction: 0.00001, restitution: 0.5, density: 0.001 });
+          return Bodies.circle(x, y, Common.random(10, 20), {
+            friction: 0.00001,
+            restitution: 0.5,
+            density: 0.001,
+            render: {
+              sprite: {
+                texture: cow
+              }
+            }
+          });
       });
 
       World.add(world, stack);

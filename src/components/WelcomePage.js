@@ -5,6 +5,7 @@ export default class WelcomePage extends Component {
 		return (
 			<div>
 				<span className="centerScreen title">COW ???</span>
+				<img src={require('../cow.png')} alt='loadthisfuckingcow' />
 			</div>
 		)
 	}

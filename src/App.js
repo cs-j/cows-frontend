@@ -7,6 +7,7 @@ import { startGame } from './actions';
 import { Button } from 'semantic-ui-react';
 import GamePage from './components/GamePage';
 
+
 class App extends Component {
 
   handleOnClick() {
