@@ -9,6 +9,9 @@ const defaultState = {
       ratio: Ratio
   },
   gameStarted: false,
+  cow: {
+    clicked: false
+  }
 }
 
 export function rootReducer(state = defaultState, action){

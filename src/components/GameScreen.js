@@ -1,10 +1,11 @@
 // import React from 'react';
-import Matter from 'matter-js'
+import Matter from 'matter-js';
 const GameScreen = GameScreen || {};
 const cow = require('../cow.png');
 const map = require('../map.png');
 
 export default GameScreen.avalanche = function() {
+
     let Engine = Matter.Engine,
         Render = Matter.Render,
         Runner = Matter.Runner,
@@ -13,7 +14,8 @@ export default GameScreen.avalanche = function() {
         MouseConstraint = Matter.MouseConstraint,
         Mouse = Matter.Mouse,
         World = Matter.World,
-        Bodies = Matter.Bodies;
+        Events = Matter.Events,
+        Bodies = Matter.Bodies; //TODO research destructuring and use it here
 
     // create engine
     let engine = Engine.create(),
@@ -82,6 +84,20 @@ export default GameScreen.avalanche = function() {
         }
     });
 
+    // function handleCowClick(bodies) {
+    //   bodies.forEach(body => {
+    //     if (body.label === 'Circle Body') {
+    //       // console.log('circle body !!!', body.label)
+    //       console.log(store.getState())
+    //       // body.onClick = (e) => {
+    //       //   console.log('Cow click!!!')
+    //       // }
+    //     }
+    //   })
+    // }
+    //
+    // handleCowClick(bodies)
+
     World.add(world, stack);
 
     // add mouse control
@@ -96,6 +112,11 @@ export default GameScreen.avalanche = function() {
             }
         });
 
+    Events.on(mouseConstraint, 'enddrag', function(event) {
+        // shakeScene(engine);
+        console.log(event);
+    });
+
     World.add(world, mouseConstraint);
 
     // keep the mouse in sync with rendering
@@ -109,6 +130,7 @@ export default GameScreen.avalanche = function() {
 
     // context for MatterTools.Demo
     return {
+        bodies: stack.bodies,
         engine: engine,
         runner: runner,
         render: render,
