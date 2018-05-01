@@ -4,7 +4,7 @@ export default class WelcomePage extends Component {
 	render() {
 		return (
 			<div>
-				<span className="centerScreen title">COW ???</span>
+				<span className="centerScreen title">World Dairy Expo</span>
 			</div>
 		)
 	}

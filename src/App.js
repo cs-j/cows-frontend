@@ -5,6 +5,7 @@ import WelcomePage from './components/WelcomePage';
 import { startGame } from './actions';
 import { Button } from 'semantic-ui-react';
 import GameScreen from './components/GameScreen';
+// import Scoreboard from './components/Scoreboard';
 
 class App extends Component {
 
@@ -14,7 +15,7 @@ class App extends Component {
 
   render() {
     // console.log(this.props.store.getState())
-    // console.log(GameScreen().bodies)
+    // console.log(GameScreen())
     return (
       <div className="App">
         {this.props.store.getState().gameStarted === false ? <canvas id="canvas"
@@ -24,7 +25,7 @@ class App extends Component {
         { this.props.store.getState().gameStarted === false && <div>
           <WelcomePage />
           <Button color='black' size='large' className='startButton' onClick={() => this.handleStartButton()}>
-            Start Game
+            Click to Play
           </Button>
         </div> }
         { this.props.store.getState().gameStarted === true && GameScreen() }
