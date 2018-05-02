@@ -8,10 +8,7 @@ const defaultState = {
       height: Height,
       ratio: Ratio
   },
-  gameStarted: false,
-  cow: {
-    clicked: false
-  }
+  gameStarted: false
 }
 
 export function rootReducer(state = defaultState, action){

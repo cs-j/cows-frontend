@@ -48,6 +48,12 @@ canvas {
   font-size: 60px;
 }
 
+.rules {
+  top: 28%;
+  color: #000000;
+  font-size: 15px;
+}
+
 .score {
   top: 90%;
   color: #000000;
@@ -55,7 +61,6 @@ canvas {
 }
 
 .startButton {
-  top: 35%;
+  top: 40%;
   position: absolute;
-  text-align: center;
 }

@@ -25,11 +25,10 @@ class App extends Component {
         { this.props.store.getState().gameStarted === false && <div>
           <WelcomePage />
           <Button color='black' size='large' className='startButton' onClick={() => this.handleStartButton()}>
-            Click to Play
+            Start Game
           </Button>
         </div> }
         { this.props.store.getState().gameStarted === true && GameScreen() }
-
       </div>
     );
   }
@@ -37,7 +36,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    gameStarted: state.gameStarted
+    gameStarted: state.gameStarted,
   }
 }
 

@@ -3,8 +3,6 @@ import MatterWrap from 'matter-wrap';
 const GameScreen = GameScreen || {};
 const cow = require('../cow.png');
 const map = require('../map.png');
-// let $currentScore = $('.current-score span');
-// let $highScore = $('.high-score span');
 
 // shared variables
 // let currentScore, highScore;
@@ -58,6 +56,7 @@ export default GameScreen.avalanche = function() {
         friction: 0.00001,
         restitution: 0.5,
         density: 0.001,
+        label: 'cow',
         render: {
           sprite: {
             texture: cow
@@ -67,12 +66,12 @@ export default GameScreen.avalanche = function() {
     });
 
     const mapStack = Composites.stack(20, 20, 5, 10, 0, 0, function(x, y) {
-      return Bodies.rectangle(100, 25, 80, 80, {
+      return Bodies.rectangle(x, y, 1, 1, {
         friction: 0.00001,
         restitution: 0.5,
         density: 0.001,
+        label: 'map',
         render: {
-          strokeStyle: '#ffffff',
           sprite: {
             texture: map
           }
@@ -100,42 +99,50 @@ export default GameScreen.avalanche = function() {
             }
         });
 
+    function loseGame() {
+      // Matter.Render.stop(render);
+      // Matter.Runner.stop(runner);
+      alert("You lost! Play again?");
+      document.location.reload();
+    }
+
+    setTimeout(function() {
+      alert("Time's up! Play again?");
+      document.location.reload();
+    }, 30000);
+
     function addCowToScore() {
-      // cowCount++
-      // return cowCount
       updateScore(currentScore + 10);
     }
 
     function updateScore(newCurrentScore) {
   		currentScore = newCurrentScore;
-  		// $currentScore.text(currentScore);
-
   		// highScore = Math.max(currentScore, highScore);
-  		// $highScore.text(highScore);
 
       console.log('current score is', currentScore)
       // console.log('high score is', highScore)
-  	}
+
+      if(currentScore > 50) {
+        alert(`YOU WIN, CONGRATULATIONS!
+        Your final score is ${currentScore}`);
+        document.location.reload();
+      }
+
+      // render.canvas.fillText("Score: "+currentScore, 8, 20);
+    }
 
     function handleClick(event) {
-        if (event.body.label === 'Circle Body') {
-          // console.log('clicked on a cow, which is a', event.body.label)
+        if (event.body.label === 'cow') {
           addCowToScore()
         }
         else {
-          console.log('clicked on a map, which is a', event.body.label)
+          loseGame()
         }
       }
 
     Events.on(mouseConstraint, 'enddrag', function(event) {
       handleClick(event);
     });
-
-    // Events.on(Bodies, 'afterRender', function(event) {
-    //     var context = World.render.context;
-    //     // context.font = "45px 'Cabin Sketch'";
-    //     context.fillText("THROW OBJECT HERE", 150, 80);
-    // });
 
     World.add(world, mouseConstraint);
 
