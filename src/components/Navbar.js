@@ -1,19 +1,19 @@
+import React from 'react';
+import { Icon } from 'semantic-ui-react';
 let navbar = document.createElement('div');
-navbar.innerText = "NAVBAR or footer !!!¡¡¡¡¡¡¡";
+navbar.innerHTML = "<Icon link='https://github.com/cs-j' name='github' />";
+// navbar.innerHTML = <p>Hi</p>
 
 export default function Navbar() {
 
 function displayNavbar() {
-
-  // document.body.appendChild(scoreDiv);
-  let root = document.getElementById("root");
-  root.appendChild(navbar);
+  document.body.appendChild(navbar);
 }
-
 
 	return (
       displayNavbar()
-			// GameScreen.currentScore
-			// <span className="centerScreen score">{GameScreen.currentScore}</span>
+      // <Button basic >
+      //   <Icon name='github' /> GitHub
+      // </Button>
 	)
 }

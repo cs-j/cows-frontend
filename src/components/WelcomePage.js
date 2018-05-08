@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import cowImage from '../images/cow_head.png';
 import globe from '../images/globe.png';
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header } from 'semantic-ui-react';
 
 export default class WelcomePage extends Component {
 	render() {

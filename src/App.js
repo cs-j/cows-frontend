@@ -27,9 +27,9 @@ class App extends Component {
           </Button>
         </div> }
         { this.props.store.getState().gameStarted === true && <div>
-          { Navbar() }
           {/* { GameScreen() } */}
-          { Scoreboard() }
+          <Scoreboard />
+          { Navbar() }
         </div> }
       </div>
     );

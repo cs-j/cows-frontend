@@ -1,22 +1,19 @@
+import React from 'react';
 import Matter from 'matter-js';
 import MatterWrap from 'matter-wrap';
 import cow from '../images/cow.png';
 import cow2 from '../images/cow2.png';
 import cow3 from '../images/cow3.png';
+// import { Modal } from 'semantic-ui-react';
 const GameScreen = GameScreen || {};
-// const cows = [cow, cow2, cow3]
 const map = require('../images/map.png');
-
-// shared variables
-// let currentScore, highScore;
 let currentScore = 0;
-// highScore = 0;
 
 Matter.use(
   MatterWrap
 );
 
-export default GameScreen.avalanche = function() {
+export default GameScreen.avalanche = function(setState) {
 
     let Engine = Matter.Engine,
         Render = Matter.Render,
@@ -39,9 +36,8 @@ export default GameScreen.avalanche = function() {
         element: document.body,
         engine: engine,
         options: {
-            width: 1200,
-            height: 750,
-            enabled: true,
+            width: 900,
+            height: 450,
             background: '#ffffff',
             showAngleIndicator: false,
             wireframes: false
@@ -114,9 +110,9 @@ export default GameScreen.avalanche = function() {
     World.add(world, [cowStack, cowStack2, cowStack3, mapStack]);
 
     World.add(world, [
-        Bodies.rectangle(200, 150, 700, 20, { isStatic: true, angle: Math.PI * 0.06, render: {fillStyle: 'black'} }),
-        Bodies.rectangle(500, 350, 700, 20, { isStatic: true, angle: -Math.PI * 0.06, render: {fillStyle: 'black'} }),
-        Bodies.rectangle(340, 580, 700, 20, { isStatic: true, angle: Math.PI * 0.04, render: {fillStyle: 'black'} })
+        Bodies.rectangle(0, 150, 700, 10, { isStatic: true, angle: Math.PI * 0.06, render: {fillStyle: 'black'} }),
+        Bodies.rectangle(500, 350, 700, 10, { isStatic: true, angle: -Math.PI * 0.06, render: {fillStyle: 'black'} }),
+        Bodies.rectangle(200, 580, 700, 10, { isStatic: true, angle: Math.PI * 0.04, render: {fillStyle: 'black'} })
     ]);
 
     // add mouse control
@@ -132,8 +128,6 @@ export default GameScreen.avalanche = function() {
         });
 
     function loseGame() {
-      // Matter.Render.stop(render);
-      // Matter.Runner.stop(runner);
       alert("You lost! Play again?");
       document.location.reload();
     }
@@ -144,7 +138,7 @@ export default GameScreen.avalanche = function() {
     }, 120000);
 
     function checkForWin() {
-      if(currentScore > 200) {
+      if(currentScore > 400) {
         alert(`YOU WIN, CONGRATULATIONS!
         Your final score is ${currentScore}`);
         document.location.reload();
@@ -152,22 +146,22 @@ export default GameScreen.avalanche = function() {
     }
 
     function addCowToScore() {
-      updateScore(currentScore + 10);
+      updateScore(currentScore + 10)
+      if(setState) {setState({score: currentScore})}
+      return currentScore
     }
 
     function updateScore(newCurrentScore) {
   		currentScore = newCurrentScore;
-      // return currentScore
-  		// highScore = Math.max(currentScore, highScore);
-
-      console.log('current score is', currentScore)
-      // console.log('high score is', highScore)
     }
 
     function handleClick(event) {
         if (event.body.label === 'cow') {
           addCowToScore()
           checkForWin()
+          Composite.remove(cowStack, event.body)
+          Composite.remove(cowStack2, event.body)
+          Composite.remove(cowStack3, event.body)
         } else if (event.body.label === 'map') {
           loseGame()
         }
@@ -213,6 +207,8 @@ export default GameScreen.avalanche = function() {
             max: { x: render.bounds.max.x, y: render.bounds.max.y }
         };
     }
+
+
 
     return {
         score: currentScore,
