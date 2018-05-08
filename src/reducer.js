@@ -8,7 +8,8 @@ const defaultState = {
       height: Height,
       ratio: Ratio
   },
-  gameStarted: false
+  gameStarted: false,
+  isLoggedIn: false
 }
 
 export function rootReducer(state = defaultState, action){
@@ -17,6 +18,10 @@ export function rootReducer(state = defaultState, action){
       return {...state,
         gameStarted: true
       }
+    // case 'LOG_IN':
+    // return {...state,
+    //   isLoggedIn: true
+    // }
     default:
       return state
   }

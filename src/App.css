@@ -34,33 +34,63 @@ canvas {
   margin-right: auto;
 }
 
-.centerScreen {
+/* .centerScreen {
   text-align: center;
   display: block;
   position: absolute;
   z-index: 1;
   width: 100%;
-}
+} */
 
-.title {
+/* .header {
   top: 20%;
   color: #000000;
   font-size: 60px;
-}
+} */
 
-.rules {
-  top: 28%;
-  color: #000000;
-  font-size: 15px;
-}
 
-.score {
-  top: 90%;
-  color: #000000;
-  font-size: 60px;
-}
-
-.startButton {
-  top: 40%;
+.cowImage {
+  right: 0%;
+  bottom: 0%;
   position: absolute;
+}
+
+.ui.statistic {
+  top: 90%;
+}
+
+.ui.header.title {
+  font-size: 70px;
+  top: 3%;
+  position: absolute;
+  width: 100%;
+}
+
+.ui.text.container {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 1251px!important;
+}
+
+.ui.text.container.rules {
+  top: 15%;
+  position: absolute;
+  width: 100%;
+}
+
+.ui.header>img:only-child {
+  margin-right: 0rem;
+}
+
+.ui.header>img {
+  width: 40px;
+  margin-bottom: 15px;
+}
+
+.ui.black.button {
+  top: 30%;
+  position: absolute;
+  border-radius: 2rem;
+  /* width: 100%; */
 }

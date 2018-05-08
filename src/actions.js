@@ -3,3 +3,9 @@ export function startGame() {
     type: 'START_GAME'
   }
 }
+// 
+// export function logIn() {
+//   return {
+//     type: 'LOG_IN'
+//   }
+// }
