@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import WelcomePage from './components/WelcomePage';
-// import Login from './components/Login';
-// import Logout from './components/Logout';
 import { startGame } from './actions';
 import { Button, Header } from 'semantic-ui-react';
 import globe from './images/globe.png';

@@ -3,26 +3,14 @@ import GameScreen from './GameScreen';
 import '../App.css';
 import { Statistic, Image } from 'semantic-ui-react';
 import cow from '../images/cow_trophy.png';
-let secondsLeft = 1000;
+let secondsLeft = 60;
 
 export default class Scoreboard extends Component {
 
   state = {
     score: GameScreen(this.setState.bind(this)).score,
-    secondsLeft: 1000
+    secondsLeft: 60
   }
-
-//   interval = () => { setInterval(function() {
-//     secondsLeft = --secondsLeft;
-//     console.log("inside interval", secondsLeft);
-//     if (secondsLeft <= 0)
-//     {
-//       // document.getElementById('timer').innerHTML = "Time's Up!";
-//       clearInterval();
-//     }
-//   }, 1000)
-// }
-
 
   componentDidMount() {
     setInterval(() => {
@@ -41,8 +29,6 @@ export default class Scoreboard extends Component {
 
 
   render() {
-    // console.log("inside scoreboard");
-    // console.log("score is", this.state.score);
     return (
       <Statistic.Group>
         <Statistic id='score'>

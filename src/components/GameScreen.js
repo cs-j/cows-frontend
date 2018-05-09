@@ -20,7 +20,6 @@ export default GameScreen.avalanche = function(setState) {
         Runner = Matter.Runner,
         Composite = Matter.Composite,
         Composites = Matter.Composites,
-        // Common = Matter.Common,
         MouseConstraint = Matter.MouseConstraint,
         Mouse = Matter.Mouse,
         World = Matter.World,
@@ -132,13 +131,8 @@ export default GameScreen.avalanche = function(setState) {
       document.location.reload();
     }
 
-    // setTimeout(function() {
-    //   alert("Time's up! Play again?");
-    //   document.location.reload();
-    // }, 5000);
-
     function checkForWin() {
-      if(currentScore > 400) {
+      if(currentScore > 500) {
         alert(`YOU WIN, CONGRATULATIONS!
         Your final score is ${currentScore}`);
         document.location.reload();
@@ -207,8 +201,6 @@ export default GameScreen.avalanche = function(setState) {
             max: { x: render.bounds.max.x, y: render.bounds.max.y }
         };
     }
-
-
 
     return {
         score: currentScore,
