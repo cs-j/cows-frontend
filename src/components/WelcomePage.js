@@ -12,7 +12,7 @@ export default class WelcomePage extends Component {
 			  <Container text className='rules'>
 			    <Header as='h3'>How to Play:</Header>
 					<p>1. click on cows</p>
-					<p>2. do not click on non-cows</p>
+					<p>2. do not click on things<br/>that aren't cows</p>
 			  </Container>
 			 	<img src={cowImage} className='cowImage' alt='cow' />
 			</div>
