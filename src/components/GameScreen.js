@@ -132,10 +132,10 @@ export default GameScreen.avalanche = function(setState) {
       document.location.reload();
     }
 
-    setTimeout(function() {
-      alert("Time's up! Play again?");
-      document.location.reload();
-    }, 120000);
+    // setTimeout(function() {
+    //   alert("Time's up! Play again?");
+    //   document.location.reload();
+    // }, 5000);
 
     function checkForWin() {
       if(currentScore > 400) {

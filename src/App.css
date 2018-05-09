@@ -27,72 +27,88 @@
   to { transform: rotate(360deg); }
 }
 
-canvas {
-  display: block;
-  background-color: #ffffff;
-  margin-left: auto;
-  margin-right: auto;
-  border: solid;
-}
-
-/* .centerScreen {
-  text-align: center;
-  display: block;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-} */
-
-/* .header {
-  top: 20%;
-  color: #000000;
-  font-size: 60px;
-} */
-
+/* WELCOME PAGE */
 
 .cowImage {
   right: 0%;
   bottom: 0%;
-  height: 450px;
+  height: 400px;
   position: absolute;
 }
 
-.ui.statistic {
-  top: 90%;
-}
-
-.ui.header.title {
-  font-size: 70px;
-  top: 5%;
+/* WelcomePage Title */
+h1.ui.header {
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 100px;
+  top: 10%;
   position: absolute;
-  width: 100%;
-}
-
-.ui.text.container {
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  line-height: 1.5;
   width: 100%;
   max-width: 1251px!important;
 }
 
-.ui.text.container.rules {
-  top: 20%;
-  position: absolute;
-  width: 100%;
+/* WelcomePage Rules */
+h3.ui.header {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 35px;
 }
 
+.ui.text.container.rules {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 26px;
+  line-height: 1.5;
+  top: 30%;
+  position: absolute;
+  width: 100%;
+  max-width: 1251px!important;
+}
+
+/* Globe Image */
 .ui.header>img:only-child {
   margin-right: 0rem;
 }
 
 .ui.header>img {
-  width: 40px;
+  width: 58px;
   margin-bottom: 15px;
 }
 
+/* Start Button */
 .ui.black.button {
-  top: 40%;
+  top: 60%;
+  font-family: 'Londrina Solid', cursive;
+  font-size: 38px;
   position: absolute;
   border-radius: 2rem;
-  /* width: 100%; */
+  padding: .5em;
+}
+
+
+/* GAME SCREEN */
+
+canvas {
+  display: block;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.8rem solid black;
+}
+
+/* Score and Timer */
+.ui.statistics {
+  display: inline-block;
+}
+
+.ui.statistics .statistic>.value {
+  font-family: 'Londrina Solid', cursive;
+}
+
+.ui.statistics .statistic>.value~.label {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 25px;
+}
+
+/* GameScreen Title */
+h2.ui.header {
+  font-size: 55px;
+  font-family: 'Londrina Shadow', cursive;
 }
