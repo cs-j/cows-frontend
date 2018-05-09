@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 import Matter from 'matter-js';
 import MatterWrap from 'matter-wrap';
 import cow from '../images/cow.png';
 import cow2 from '../images/cow2.png';
 import cow3 from '../images/cow3.png';
-import { Modal, Icon, Button, Header } from 'semantic-ui-react';
+// import { Modal, Icon, Button, Header } from 'semantic-ui-react';
 const GameScreen = GameScreen || {};
 const map = require('../images/map.png');
 let currentScore = 0;

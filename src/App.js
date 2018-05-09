@@ -6,7 +6,6 @@ import { startGame } from './actions';
 import { Button, Header } from 'semantic-ui-react';
 import globe from './images/globe.png';
 import Scoreboard from './components/Scoreboard';
-import Navbar from './components/Navbar';
 
 class App extends Component {
 
@@ -27,7 +26,6 @@ class App extends Component {
         { this.props.store.getState().gameStarted === true && <div>
           <Header as='h2' className='title'>W<img src={globe} alt='globe as the o in the word world' />rld Dairy Expo</Header>
           <Scoreboard />
-          { Navbar() }
         </div> }
       </div>
     );
