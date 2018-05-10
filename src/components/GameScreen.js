@@ -127,14 +127,18 @@ export default GameScreen.avalanche = function(setState) {
         });
 
     function loseGame() {
-      alert("You lost! Play again?");
+      alert(
+        `YOU LOST!
+        Your score was ${currentScore}.
+        Play again?`);
       document.location.reload();
     }
 
     function checkForWin() {
-      if(currentScore > 500) {
+      if(currentScore > 300) {
         alert(`YOU WIN, CONGRATULATIONS!
-        Your final score is ${currentScore}`);
+        Your final score is ${currentScore}.
+        Play again?`);
         document.location.reload();
       }
     }
