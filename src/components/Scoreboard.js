@@ -9,6 +9,7 @@ export default class Scoreboard extends Component {
   state = {
     score: GameScreen(this.setState.bind(this)).score,
     secondsLeft: 60
+    // timeUp: false
   }
 
   componentDidMount() {
@@ -16,35 +17,43 @@ export default class Scoreboard extends Component {
         this.setState({secondsLeft: --this.state.secondsLeft})
         if (this.state.secondsLeft <= 0) {
           alert("Time's up! Play again?");
-          // <Modal trigger={<Button>Basic Modal</Button>} basic size='small'>
-          //   <Header icon='hourglass end' content="Time's up!" />
-          //   <Modal.Content>
-          //     <p>Play again?</p>
-          //   </Modal.Content>
-          //   <Modal.Actions>
-          //     <Button color='green' inverted>
-          //       <Icon name='checkmark' /> Yes
-          //     </Button>
-          //   </Modal.Actions>
-          // </Modal>
+          // console.log('timeUp before 26 is', this.state.timeUp)
+          // this.setState({timeUp: true})
           clearInterval();
           document.location.reload();
         }
       } , 1000)
   }
 
+  // handleModalClick() {
+  //   document.location.reload();
+  // }
+
   render() {
     return (
-      <Statistic.Group>
-        <Statistic id='score'>
-          <Statistic.Value>
-            <Image src={cow} inline />
-            {this.state.score}
-          </Statistic.Value>
-          <Statistic.Label>Current Score</Statistic.Label>
-        </Statistic>
-        <Statistic id='timer' label='Seconds Left' value={this.state.secondsLeft} />
-      </Statistic.Group>
+      <div>
+        <Statistic.Group>
+          <Statistic id='score'>
+            <Statistic.Value>
+              <Image src={cow} inline />
+              {this.state.score}
+            </Statistic.Value>
+            <Statistic.Label>Current Score</Statistic.Label>
+          </Statistic>
+          <Statistic id='timer' label='Seconds Left' value={this.state.secondsLeft} />
+        </Statistic.Group>
+        {/* { this.state.timeUp === true ? <Modal open={this.state.timeUp === true} basic size='small'>
+          <Header icon='hourglass end' content="Time's up!" />
+          <Modal.Content>
+            <p>Play again?</p>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color='green' inverted>
+              <Icon name='checkmark' /> Yes
+            </Button>
+          </Modal.Actions>
+        </Modal> : null } */}
+      </div>
     )
   }
 }
