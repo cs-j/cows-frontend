@@ -8,7 +8,7 @@ export default class Scoreboard extends Component {
 
   state = {
     score: GameScreen(this.setState.bind(this)).score,
-    secondsLeft: 30
+    secondsLeft: 40
     // timeUp: false
   }
 
