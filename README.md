@@ -1,6 +1,6 @@
 # World Dairy Expo
 
-![](src/images/readme-cow.png)
+![](src/images/readme-cow.png)![](src/images/game_title.png)
 
 An identification game/homage to Wisconsin that integrates the Matter.js physics library with React and Redux.
 
