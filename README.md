@@ -1,13 +1,13 @@
 # World Dairy Expo
 
-![](src/images/readme_map.png)![](src/images/readme_cow_comparison.png)
+![](src/images/readme-cow.png)
 
 An identification game/homage to Wisconsin that integrates the Matter.js physics library with React and Redux.
 
 World Dairy Expo is deployed via GitHub Pages [here](http://cjacks.net/world-dairy-expo/).
 A demo is also featured on Flatiron School's [Twitter](https://twitter.com/FlatironSchool/status/1002649636253913088) & [Instagram](https://www.instagram.com/p/BjfukwfBSHJ/?taken-by=flatironschool).
 
-![](src/images/readme-cow.png)
+![](src/images/readme_map.png) OR ![](src/images/readme_cow_comparison.png) ?
 
 ## Built With:
 
