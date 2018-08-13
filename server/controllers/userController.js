@@ -16,6 +16,9 @@ function getUsers(req, res) {
 
 function addUser(req, res) {
     let user = new User(_.extend({}, req.body));
+
+  console.log(user, req.body)
+
     user.save(function (err) {
         if (err)
             res.send(err);
